@@ -18,9 +18,24 @@ const router = new VueRouter({
   routes
 });
 
+
+Vue.component('vmMain', {
+  created () {
+    console.log('test')
+  }
+})
+var res = Vue.compile(`
+  <div class="menu">
+  your menu
+  </div>
+  <div class="router">
+    <router-view></router-view>
+  </div>
+`)
 export default new Vue({
   el: '#app',
   router,
+  render: res.render,
   template: '<app/>',
-  components: {vmA}
+  components: {vmMain}
 });
